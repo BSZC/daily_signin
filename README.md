@@ -6,7 +6,7 @@
 
 ### **通知示例**
 
-![](.\pic\textcard.png)
+![](https://gitee.com/kxs2018/daily_signin/pic/textcard.png)
 
 ### **签到列表**
 
