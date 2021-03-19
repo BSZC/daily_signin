@@ -8,7 +8,7 @@ corpid = os.getenv("QYWX_CORPID").strip()
 corpsecret = os.getenv("QYWX_CORPSECRET").strip()
 agentid = os.getenv("QYWX_AGENTID").strip()
 
-if pj_cookie:  # 吾爱破解签到
+if pj_cookie and pj_cookie != None:  # 吾爱破解签到
     pj_msg = pojie(pj_cookie)
     pj_notify = QYWX_Notify(corpid, corpsecret, agentid)
     pj_notify.send('吾爱破解签到信息', pj_msg)
