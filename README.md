@@ -6,7 +6,7 @@
 
 ### **通知示例**
 
-![](.\pic\textcard.png)
+![](https://images.gitee.com/uploads/images/2021/0319/224105_cdd105fd_7943916.png)
 
 ### **签到列表**
 
@@ -22,7 +22,7 @@
 ### secrets
 
 - 添加方式：setting-secrets-add a new secret
-- [secrets说明](https://github.com/lqkxs3608/daily_signin/secrets.md)
+- [secrets说明](https://github.com/lqkxs3608/daily_signin/blob/main/secrets.md)
 
 ### **获取cookie**
 
@@ -39,4 +39,4 @@
    copy(CookieValue);
    ```
 
-[各网站cookie转换代码](https://github.com/lqkxs3608/daily_signin/cookie.md)
+[各网站cookie转换代码](https://github.com/lqkxs3608/daily_signin/blob/main/cookie.md)
