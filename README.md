@@ -6,7 +6,7 @@
 
 ### **通知示例**
 
-![](https://gitee.com/kxs2018/daily_signin/pic/textcard.png)
+![](https://gitee.com/kxs2018/daily_signin/blob/main/pic/textcard.png)
 
 ### **签到列表**
 
@@ -22,7 +22,7 @@
 ### secrets
 
 - 添加方式：setting-secrets-add a new secret
-- [secrets说明](https://github.com/lqkxs3608/daily_signin/secrets.md)
+- [secrets说明](https://github.com/lqkxs3608/daily_signin/blob/main/secrets.md)
 
 ### **获取cookie**
 
@@ -39,4 +39,4 @@
    copy(CookieValue);
    ```
 
-[各网站cookie转换代码](https://github.com/lqkxs3608/daily_signin/cookie.md)
+[各网站cookie转换代码](https://github.com/lqkxs3608/daily_signin/blob/main/cookie.md)
