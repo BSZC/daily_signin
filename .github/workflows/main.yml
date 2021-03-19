@@ -1,4 +1,4 @@
-name: 日常签到
+name: daily_signin
 on:
   push:
     branches: [ master ]
@@ -19,11 +19,11 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-    - name: 安装环境
+    - name: 瀹夎鐜
       run:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: 签到
+    - name: 鏃ュ父绛惧埌
       run: |
         python3 index.py
       env:
