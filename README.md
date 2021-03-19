@@ -6,7 +6,7 @@
 
 ### **通知示例**
 
-![](https://gitee.com/kxs2018/daily_signin/blob/main/pic/textcard.png)
+![](https://images.gitee.com/uploads/images/2021/0319/224105_cdd105fd_7943916.png)
 
 ### **签到列表**
 
