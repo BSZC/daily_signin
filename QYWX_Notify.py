@@ -1,12 +1,12 @@
 import requests
 import json
 
+
 class QYWX_Notify:
-    def __init__(self, corpid, corpsecret, agentid, media_id='0'):
+    def __init__(self, corpid, corpsecret, agentid):
         self.corpid = corpid
         self.corpsecret = corpsecret
         self.agentid = agentid
-        self.media_id = media_id
         self.access_token = self.__get_access_token(corpid, corpsecret)
 
     def __get_access_token(self, corpid, corpsecret):
@@ -28,31 +28,17 @@ class QYWX_Notify:
         data = {
             "touser": "@all",
             "agentid": self.agentid,
+            "msgtype": "textcard",
+            "textcard": {
+                "title": title,
+                "description": text,
+                "url": "URL"},
             "safe": 0,
             "enable_id_trans": 0,
             "enable_duplicate_check": 0,
             "duplicate_check_interval": 1800
         }
-        if self.media_id != '0':
-            data["msgtype"] = 'mpnews'
-            data["mpnews"] = {
-                "articles": [
-                    {
-                        "title": title,
-                        "thumb_media_id": self.media_id,
-                        "author": "",
-                        "content_source_url": "",
-                        "content": text,
-                        "digest": text
-                    }
-                ]
-            }
-        else:
-            data["msgtype"] = "textcard"
-            data["textcard"] = {
-                "title": title,
-                "description": text,
-                "url": "URL"}
+
         resp = requests.post(url, data=json.dumps(data))
         resp.raise_for_status()
         return resp.json()
