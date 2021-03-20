@@ -1,6 +1,4 @@
 requests
 pyquery
-base64
 hashlib
 rsa
-re
