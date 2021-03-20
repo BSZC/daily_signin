@@ -6,14 +6,14 @@ from QYWX_Notify import QYWX_Notify
 from csdn import csdn_signin
 from tyyp import tyyp_signin
 
-corpid = os.getenv("QYWX_CORPID").strip()
-corpsecret = os.getenv("QYWX_CORPSECRET").strip()
-agentid = os.getenv("QYWX_AGENTID").strip()
+corpid = os.getenv("QYWX_CORPID")
+corpsecret = os.getenv("QYWX_CORPSECRET")
+agentid = os.getenv("QYWX_AGENTID")
 notify = QYWX_Notify(corpid, corpsecret, agentid)
-pj_cookie = os.getenv('PJ_COOKIE').strip()
-csdn_cookie = os.getenv('CSDN_COOKIE').strip()
-tyyp_username = os.getenv('TYYP_USERNAME').strip()
-tyyp_psw = os.getenv('TYYP_PSW').strip()
+pj_cookie = os.getenv('PJ_COOKIE')
+csdn_cookie = os.getenv('CSDN_COOKIE')
+tyyp_username = os.getenv('TYYP_USERNAME')
+tyyp_psw = os.getenv('TYYP_PSW')
 
 if pj_cookie:  # 吾爱破解签到
     pj_msg = pojie_signin(pj_cookie)
