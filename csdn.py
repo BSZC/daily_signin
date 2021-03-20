@@ -18,7 +18,7 @@ def csdn_signin(cookie):
         url = "https://me.csdn.net/api/LuckyDraw_v2/signInfo?product=&&type="
         resp1 = requests.get(url, headers=headers).content.decode("unicode_escape")
         resp1 = json.loads(resp1)  # 将json转化为数组形式
-        msg = resp1['data']['msg']
+        msg = t + '\n' + resp1['data']['msg']
         signdays = resp1['data']['star']
         if signdays == 5:
             sign = requests.post("https://me.csdn.net/api/LuckyDraw_v2/goodLuck", headers=headers).content.decode(
