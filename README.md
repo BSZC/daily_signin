@@ -12,7 +12,7 @@
 
 ### 签到时间
 
-北京时间7：20。为避免签到失败，增加晚上7：20再签一次。cron表达式：20 11,23 * * *
+北京时间7：20。为避免签到失败，增加晚上7：20再签一次。cron表达式：20 11,23 * * *，如需更改，到[.github\workflows\main.yml](https://github.com/lqkxs3608/daily_signin/blob/main/.github/workflows/main.yml)中更改
 
 ### **签到列表**
 
