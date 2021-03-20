@@ -26,19 +26,12 @@ if csdn_cookie:  # CSDN签到
     notify.send('csdn签到信息', csdn_msg)
 
 if tyyp_username and tyyp_psw:  # 天翼云盘签到
-    try:
-        tyyp_username = tyyp_username.split('&')
-        try:
-            tyyp_psw = tyyp_psw.split('&')
-        except:
-            notify.send('天翼云盘签到错误', '密码数量为1或漏写&')
-            raise Exception
-        if len(tyyp_username) != len(tyyp_psw):
-            notify.send('天翼云盘签到错误', '账号密码数量不匹配')
-            raise Exception
-        for i in range(len(tyyp_username)):
-            tyyp_msg = f'账号{i + 1}:{tyyp_username[i]}\n' + tyyp_signin(tyyp_username[i], tyyp_psw[i])
-            tyyp_msg += '\n'
-    except:
-        tyyp_msg = tyyp_username + '\n' + tyyp_signin(tyyp_username, tyyp_psw)
-    notify.send('天翼云盘签到信息', tyyp_msg)
+    tyyp_username = tyyp_username.split('&')
+    tyyp_psw = tyyp_psw.split('&')
+    if len(tyyp_username) != len(tyyp_psw):
+        notify.send('天翼云盘签到错误', '账号密码数量不匹配')
+        raise Exception
+    for i in range(len(tyyp_username)):
+        tyyp_msg = f'账号{i + 1}：{tyyp_username[i]}\n' + tyyp_signin(tyyp_username[i], tyyp_psw[i])
+        tyyp_msg += '\n'
+    notify.send('天翼云盘签到信息', tyyp_msg.strip())
