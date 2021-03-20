@@ -1,2 +1,7 @@
 requests
 pyquery
+json
+base64
+hashlib
+rsa
+re

@@ -32,3 +32,5 @@ jobs:
         QYWX_AGENTID: ${{ secrets.QYWX_AGENTID }}
         PJ_COOKIE: ${{ secrets.PJ_COOKIE }}
         CSDN_COOKIE: ${{ secrets.CSDN_COOKIE }}
+        TYYP_USERNAME: ${{ secrets.TYYP_USERNAME }}
+        TYYP_PSW: ${{ secrets.TYYP_PSW }}

@@ -10,10 +10,14 @@
 
 ### **签到列表**
 
-|                   网站名称                   |   secrets   | 多账号 |
-| :------------------------------------------: | :---------: | :----: |
-| [吾爱破解](https://www.52pojie.cn/forum.php) |  PJ_COOKIE  |   否   |
-|        [CSDN](https://blog.csdn.net/)        | CSDN_COOKIE |   否   |
+|                   网站名称                   |        secrets         | 多账号 |               说明                |
+| :------------------------------------------: | :--------------------: | :----: | :-------------------------------: |
+| [吾爱破解](https://www.52pojie.cn/forum.php) |       PJ_COOKIE        |   否   |              cookie               |
+|        [CSDN](https://blog.csdn.net/)        |      CSDN_COOKIE       |   否   |              cookie               |
+|      [天翼云盘](https://cloud.189.cn/)       | TYYP_USERNAME,TYYP_PSW |   是   |   帐号：手机号，密码：不能带&。   |
+|                                              |                        |        | 帐号（密码）和帐号（密码）用&连接 |
+|                                              |                        |        |                                   |
+|                                              |                        |        |                                   |
 
 
 

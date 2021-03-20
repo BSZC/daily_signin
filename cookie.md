@@ -7,3 +7,12 @@ var CV = '单引号里面放浏览器复制好的cookie';
 var CookieValue = CV.match(/htVD_2132_auth=.+?;/) + CV.match(/htVD_2132_saltkey=.+?;/);
 copy(CookieValue);
 ```
+
+#### **CSDN**
+
+```
+var CV = '单引号里面放浏览器复制好的cookie';
+var CookieValue = CV.match(/UserName=.+?;/) + CV.match(/UserToken=.+?;/) +  CV.match(/UserNick=.+?;/);
+copy(CookieValue);
+```
+
