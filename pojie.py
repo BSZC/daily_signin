@@ -3,7 +3,7 @@ import requests
 from pyquery import PyQuery as pq
 
 
-def pojie(pj_cookie):
+def pojie_signin(pj_cookie):
     url1 = 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2'
     url2 = 'https://www.52pojie.cn/home.php?mod=task&do=draw&id=2'
     headers = {'cookie': pj_cookie,
