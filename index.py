@@ -12,7 +12,7 @@ agentid = os.getenv("QYWX_AGENTID").strip()
 notify = QYWX_Notify(corpid, corpsecret, agentid)
 pj_cookie = os.getenv('PJ_COOKIE').strip()
 csdn_cookie = os.getenv('CSDN_COOKIE').strip()
-tyyp_username = os.getenv('TYYP_USRNAME').strip()
+tyyp_username = os.getenv('TYYP_USERNAME').strip()
 tyyp_psw = os.getenv('TYYP_PSW').strip()
 
 if pj_cookie:  # 吾爱破解签到
