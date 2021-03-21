@@ -127,7 +127,7 @@ def tyyp_signin(username, password):
         else:
             res2 = ""
     else:
-        description = response.json()['description']
+        description = response.json()['prizeName']
         print(f"抽奖获得{description}")
         res2 = f"抽奖获得{description}"
     response = s.get(url2, headers=headers)
@@ -137,8 +137,7 @@ def tyyp_signin(username, password):
         else:
             res3 = ""
     else:
-        description = response.json()['description']
-        print(response.text)
+        description = response.json()['prizeName']
         print(f"抽奖获得{description}")
         res3 = f"抽奖获得{description}"
     msg = res1 + '\n' + res2 + '\n' + res3
