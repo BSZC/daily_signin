@@ -12,12 +12,14 @@
 ##### cookie secrets
 
 
-|  SECRET Name  |          说明           |
-| :-----------: | :---------------------: |
-|  `PJ_COOKIE`  |     吾爱破解cookie      |
-| `CSDN_COOKIE` |       CSDN cookie       |
-| TYYP_USRNAME  | 天翼云盘账号（手机号）  |
-|   TYYP_PSW    | 天翼云盘密码（不能有&） |
+|  SECRET Name  |               说明                |
+| :-----------: | :-------------------------------: |
+|  `PJ_COOKIE`  |          吾爱破解cookie           |
+| `CSDN_COOKIE` |            CSDN cookie            |
+| TYYP_USRNAME  |      天翼云盘账号（手机号）       |
+|   TYYP_PSW    |      天翼云盘密码（不能有&）      |
+| TOOLLU_COOKIE | 在线工具（https://tool.lu）cookie |
+|  WPS_COOKIE   |            WPS cookie             |
 
 
 

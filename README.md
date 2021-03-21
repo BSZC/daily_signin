@@ -2,6 +2,8 @@
 
 ### **更新历史**
 
+2021.3.21  增加tool.lu签到
+
 2021.3.20  增加CSDN、天翼云盘签到
 
 2021.3.19  创建项目，建立吾爱破解签到
@@ -22,7 +24,7 @@
 |        [CSDN](https://blog.csdn.net/)        |      CSDN_COOKIE       |   否   |              cookie               |
 |      [天翼云盘](https://cloud.189.cn/)       | TYYP_USERNAME,TYYP_PSW |   是   |   帐号：手机号，密码：不能带&。   |
 |                                              |                        |        | 帐号（密码）和帐号（密码）用&连接 |
-|                                              |                        |        |                                   |
+|         [在线工具](https://tool.lu/)         |     TOOLLU_COOKIE      |   否   |              cookie               |
 
 
 
