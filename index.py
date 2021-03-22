@@ -41,4 +41,4 @@ if tyyp_username and tyyp_psw:  # 天翼云盘签到
 
 if toollu_cookie: # 在线工具https://tool.lu/签到
     toollu_msg = toollu_signin(toollu_cookie)
-    notify.send(toollu_msg)
+    notify.send('tool.lu签到信息',toollu_msg)

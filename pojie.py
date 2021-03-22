@@ -13,11 +13,19 @@ def pojie_signin(pj_cookie):
     requests.get(url1, headers=headers)
     req = requests.get(url2, headers=headers).text
     doc = pq(req)
-    un = doc('.vwmy a').text()
     msg = doc('#messagetext p').text()
-    if '不是进行中的任务' in msg:
-        msg = '今日已签到'
-    elif '恭喜' in msg:
-        msg = '签到成功'
-    msg = un + '\n' + msg
+    if '您需要先登录才能继续本操作' in msg:
+        msg = 'cookie失效，请重新获取cookie'
+    else:
+        un = doc('.vwmy a').text()
+        if '不是进行中的任务' in msg:
+            msg = '今日已签到'
+        elif '恭喜' in msg:
+            msg = '签到成功'
+        msg = un + '\n' + msg
     return msg
+
+
+if __name__ == '__main__':
+    cookie = ''
+    print(pojie_signin(cookie))
