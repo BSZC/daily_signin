@@ -51,6 +51,3 @@
    ```
 
 [各网站cookie转换代码](https://github.com/lqkxs3608/daily_signin/blob/main/cookie.md) 
-
-
-![IP签名](https://tool.lu/netcard/)
