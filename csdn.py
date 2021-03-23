@@ -29,4 +29,4 @@ def csdn_signin():
                     "unicode_escape")
             option = json.loads(sign)['data']['msg']
             msg = msg + '\n' + option
-        QYWX_Notify().send('吾爱破解签到信息', msg)
+        QYWX_Notify().send('CSDN签到信息', msg)
