@@ -6,7 +6,10 @@ import base64
 import hashlib
 import rsa
 import requests
+from QYWX_Notify import QYWX_Notify
+import os
 
+psw = os.getenv('TYYP_PSW')
 BI_RM = list("0123456789abcdefghijklmnopqrstuvwxyz")
 b64map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 s = requests.Session()
@@ -90,55 +93,66 @@ def login(username, password):
     else:
         print(r.json()['msg'])
     redirect_url = r.json()['toUrl']
-    r = s.get(redirect_url)
+    s.get(redirect_url)
     return s
 
 
-def tyyp_signin(username, password):
-    login(username, password)
-    rand = str(round(time.time() * 1000))
-    surl = f'https://api.cloud.189.cn/mkt/userSign.action?rand={rand}&clientType=TELEANDROID&version=8.6.3&model=SM-G930K'
-    url = f'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN&activityId=ACT_SIGNIN'
-    url2 = f'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN_PHOTOS&activityId=ACT_SIGNIN'
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 5.1.1; SM-G930K Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36 Ecloud/8.6.3 Android/22 clientId/355325117317828 clientModel/SM-G930K imsi/460071114317824 clientChannelId/qq proVersion/1.0.6',
-        "Referer": "https://m.cloud.189.cn/zhuanti/2016/sign/index.jsp?albumBackupOpened=1",
-        "Host": "m.cloud.189.cn",
-        "Accept-Encoding": "gzip, deflate",
-    }
-    response = s.get(surl, headers=headers)
-    netdiskBonus = response.json()['netdiskBonus']
-    if response.json()['isSign'] == "false":
-        print(f"未签到，签到获得{netdiskBonus}M空间")
-        res1 = f"未签到，签到获得{netdiskBonus}M空间"
-    else:
-        print(f"已经签到过了，签到获得{netdiskBonus}M空间")
-        res1 = f"已经签到过了，签到获得{netdiskBonus}M空间"
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 5.1.1; SM-G930K Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36 Ecloud/8.6.3 Android/22 clientId/355325117317828 clientModel/SM-G930K imsi/460071114317824 clientChannelId/qq proVersion/1.0.6',
-        "Referer": "https://m.cloud.189.cn/zhuanti/2016/sign/index.jsp?albumBackupOpened=1",
-        "Host": "m.cloud.189.cn",
-        "Accept-Encoding": "gzip, deflate",
-    }
-    response = s.get(url, headers=headers)
-    if "errorCode" in response.text:
-        if "User_Not_Chance" in response.text:
-            res2 = "无抽奖机会"
-        else:
-            res2 = ""
-    else:
-        description = response.json()['prizeName']
-        print(f"抽奖获得{description}")
-        res2 = f"抽奖获得{description}"
-    response = s.get(url2, headers=headers)
-    if "errorCode" in response.text:
-        if "User_Not_Chance" in response.text:
-            res3 = "无抽奖机会"
-        else:
-            res3 = ""
-    else:
-        description = response.json()['prizeName']
-        print(f"抽奖获得{description}")
-        res3 = f"抽奖获得{description}"
-    msg = res1 + '\n' + res2 + '\n' + res3
-    return msg
+def tyyp_signin():
+    un = os.getenv('TYYP_USERNAME')
+    psw = os.getenv('TYYP_PSW')
+    if un and psw:
+        un = un.split('&')
+        psw = psw.split('&')
+        if len(un) != len(psw):
+            QYWX_Notify().send('天翼云盘签到错误', '账号密码数量不匹配')
+            raise Exception
+        for i in range(len(un)):
+            login(un[i], psw[i])
+            rand = str(round(time.time() * 1000))
+            surl = f'https://api.cloud.189.cn/mkt/userSign.action?rand={rand}&clientType=TELEANDROID&version=8.6.3&model=SM-G930K'
+            url = f'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN&activityId=ACT_SIGNIN'
+            url2 = f'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN_PHOTOS&activityId=ACT_SIGNIN'
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Linux; Android 5.1.1; SM-G930K Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36 Ecloud/8.6.3 Android/22 clientId/355325117317828 clientModel/SM-G930K imsi/460071114317824 clientChannelId/qq proVersion/1.0.6',
+                "Referer": "https://m.cloud.189.cn/zhuanti/2016/sign/index.jsp?albumBackupOpened=1",
+                "Host": "m.cloud.189.cn",
+                "Accept-Encoding": "gzip, deflate",
+            }
+            response = s.get(surl, headers=headers)
+            netdiskBonus = response.json()['netdiskBonus']
+            if response.json()['isSign'] == "false":
+                print(f"未签到，签到获得{netdiskBonus}M空间")
+                res1 = f"未签到，签到获得{netdiskBonus}M空间"
+            else:
+                print(f"已经签到过了，签到获得{netdiskBonus}M空间")
+                res1 = f"已经签到过了，签到获得{netdiskBonus}M空间"
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Linux; Android 5.1.1; SM-G930K Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36 Ecloud/8.6.3 Android/22 clientId/355325117317828 clientModel/SM-G930K imsi/460071114317824 clientChannelId/qq proVersion/1.0.6',
+                "Referer": "https://m.cloud.189.cn/zhuanti/2016/sign/index.jsp?albumBackupOpened=1",
+                "Host": "m.cloud.189.cn",
+                "Accept-Encoding": "gzip, deflate",
+            }
+            response = s.get(url, headers=headers)
+            if "errorCode" in response.text:
+                if "User_Not_Chance" in response.text:
+                    res2 = "无抽奖机会"
+                else:
+                    res2 = ""
+            else:
+                description = response.json()['prizeName']
+                print(f"抽奖获得{description}")
+                res2 = f"抽奖获得{description}"
+            response = s.get(url2, headers=headers)
+            if "errorCode" in response.text:
+                if "User_Not_Chance" in response.text:
+                    res3 = "无抽奖机会"
+                else:
+                    res3 = ""
+            else:
+                description = response.json()['prizeName']
+                print(f"抽奖获得{description}")
+                res3 = f"抽奖获得{description}"
+            msg = res1 + '\n' + res2 + '\n' + res3
+            msg = f'账号{i + 1}：{un[i]}\n' + msg
+            msg += '\n'
+        QYWX_Notify().send('天翼云盘签到信息', msg)

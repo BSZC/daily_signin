@@ -1,19 +1,20 @@
 import requests
 import json
+import os
 
 
 class QYWX_Notify:
-    def __init__(self, corpid, corpsecret, agentid):
-        self.corpid = corpid
-        self.corpsecret = corpsecret
-        self.agentid = agentid
-        self.access_token = self.__get_access_token(corpid, corpsecret)
+    def __init__(self):
+        self.corpid = os.getenv("QYWX_CORPID")
+        self.corpsecret = os.getenv("QYWX_CORPSECRET")
+        self.agentid = os.getenv("QYWX_AGENTID")
+        self.access_token = self.__get_access_token()
 
-    def __get_access_token(self, corpid, corpsecret):
+    def __get_access_token(self):
         url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
         params = {
-            'corpid': corpid,
-            'corpsecret': corpsecret
+            'corpid': self.corpid,
+            'corpsecret': self.corpsecret
         }
         resp = requests.get(url, params=params)
         resp.raise_for_status()
