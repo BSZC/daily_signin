@@ -20,11 +20,11 @@ def pojie_signin():
         if '您需要先登录才能继续本操作' in msg:
             msg = 'cookie失效，请重新获取cookie'
         else:
+            un = doc('.vwmy a').text()
             if '不是进行中的任务' in msg:
                 msg = '今日已签到'
             elif '恭喜' in msg:
-                msg = '签到成功'
-            un = doc('.vwmy a').text()
+                msg = '签到成功'            
             msg = un + '\n' + msg
         QYWX_Notify().send('吾爱破解签到信息', msg)
         print(msg)
