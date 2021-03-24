@@ -27,4 +27,3 @@ def pojie_signin():
                 msg = '签到成功'            
             msg = un + '\n' + msg
         QYWX_Notify().send('吾爱破解签到信息', msg)
-        print(msg)
