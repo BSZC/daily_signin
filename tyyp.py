@@ -149,7 +149,6 @@ def tyyp_signin():
                 description = response.json()['prizeName']               
                 res3 = f"抽奖获得{description}"
             msg = res1 + '\n' + res2 + '\n' + res3
-            msg = f'账号{i + 1}：{un[i]}\n' + msg
-            msg += '\n'
-        msg.strip()
+            msg = f'账号{i + 1}：{un[i]}\n' + msg + '\n'
+        msg = msg.strip()
         QYWX_Notify().send('天翼云盘签到信息', msg)
