@@ -25,3 +25,4 @@ class SignIn(Thread):
 for i in range(3):
     sign = SignIn(q)
     sign.start()
+    sign.join()
