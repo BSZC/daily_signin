@@ -151,4 +151,5 @@ def tyyp_signin():
             msg = res1 + '\n' + res2 + '\n' + res3
             msg = f'账号{i + 1}：{un[i]}\n' + msg
             msg += '\n'
+        msg.strip()
         QYWX_Notify().send('天翼云盘签到信息', msg)
