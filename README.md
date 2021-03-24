@@ -20,14 +20,14 @@
 
 ### **签到列表**
 
-|                   网站名称                   |        secrets         | 多账号 |               说明                |
-| :------------------------------------------: | :--------------------: | :----: | :-------------------------------: |
-| [吾爱破解](https://www.52pojie.cn/forum.php) |       PJ_COOKIE        |   否   |              cookie               |
-|        [CSDN](https://blog.csdn.net/)        |      CSDN_COOKIE       |   否   |              cookie               |
-|      [天翼云盘](https://cloud.189.cn/)       | TYYP_USERNAME,TYYP_PSW |   是   |   帐号：手机号，密码：不能带&。   |
-|                                              |                        |        | 帐号（密码）和帐号（密码）用&连接 |
-|         [在线工具](https://tool.lu/)         |     TOOLLU_COOKIE      |   否   |              cookie               |
-|                     WPS                      |        WPS_SID         |   是   |              cookie               |
+|                   网站名称                   |        secrets         | 多账号 |                  说明                  |
+| :------------------------------------------: | :--------------------: | :----: | :------------------------------------: |
+| [吾爱破解](https://www.52pojie.cn/forum.php) |       PJ_COOKIE        |   否   |                 cookie                 |
+|        [CSDN](https://blog.csdn.net/)        |      CSDN_COOKIE       |   否   |                 cookie                 |
+|      [天翼云盘](https://cloud.189.cn/)       | TYYP_USERNAME,TYYP_PSW |   是   |     帐号：手机号，密码：不能带&。      |
+|                                              |                        |        |   帐号（密码）和帐号（密码）用&连接    |
+|         [在线工具](https://tool.lu/)         |     TOOLLU_COOKIE      |   否   |                 cookie                 |
+|                     WPS                      |        WPS_SID         |   是   | cookie，网页、客户端、小程序多渠道签到 |
 
 
 

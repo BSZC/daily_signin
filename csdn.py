@@ -5,6 +5,7 @@ import requests
 import os
 from QYWX_Notify import QYWX_Notify
 import re
+import urllib
 
 
 def csdn_signin():
@@ -22,6 +23,7 @@ def csdn_signin():
         resp1 = requests.get(url, headers=headers).content.decode("unicode_escape")
         resp1 = json.loads(resp1)  # 将json转化为数组形式
         nickname = re.findall(r'UserNick=(.+?);', cookie)[0]
+        nickname = urllib.request.unquote(nickname)
         msg = nickname + '\n'+t + '\n' + resp1['data']['msg']
         signdays = resp1['data']['star']
         if signdays == 5:

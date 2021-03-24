@@ -35,3 +35,4 @@ jobs:
         TYYP_USERNAME: ${{ secrets.TYYP_USERNAME }}
         TYYP_PSW: ${{ secrets.TYYP_PSW }}
         TOOLLU_COOKIE: ${{ secrets.TOOLLU_COOKIE }}
+        WPS_SID: ${{ secrets.WPS_SID }}
