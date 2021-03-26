@@ -26,6 +26,14 @@ var CookieValue = CV.match(/uuid=.+?;/) + CV.match(/laravel_session=.+/);
 copy(CookieValue);
 ```
 
+#### **有道云笔记**
+
+```
+var CV = '单引号里面放浏览器复制好的cookie';
+var CookieValue = CV.match(/YNOTE_SESS=.+?;/) + 'YNOTE_LOGIN=true';
+copy(CookieValue);
+```
+
 #### **WPS**
 
 ```

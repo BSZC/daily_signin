@@ -20,6 +20,7 @@
 |   TYYP_PSW    |      天翼云盘密码（不能有&）      |
 | TOOLLU_COOKIE | 在线工具（https://tool.lu）cookie |
 |  WPS_COOKIE   |            WPS cookie             |
+|   YD_COOKIE   |         有道云笔记cookie          |
 
 
 

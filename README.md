@@ -2,6 +2,8 @@
 
 ### **更新历史**
 
+2021.3.26  增加有道云笔记签到
+
 2021.3.23  为避免index.py太过臃肿，修改了代码结构。正在尝试多线程签到
 
 2021.3.21  增加tool.lu签到
@@ -20,14 +22,15 @@
 
 ### **签到列表**
 
-|                   网站名称                   |        secrets         | 多账号 |                  说明                  |
-| :------------------------------------------: | :--------------------: | :----: | :------------------------------------: |
-| [吾爱破解](https://www.52pojie.cn/forum.php) |       PJ_COOKIE        |   否   |                 cookie                 |
-|        [CSDN](https://blog.csdn.net/)        |      CSDN_COOKIE       |   否   |                 cookie                 |
-|      [天翼云盘](https://cloud.189.cn/)       | TYYP_USERNAME,TYYP_PSW |   是   |     帐号：手机号，密码：不能带&。      |
-|                                              |                        |        |   帐号（密码）和帐号（密码）用&连接    |
-|         [在线工具](https://tool.lu/)         |     TOOLLU_COOKIE      |   否   |                 cookie                 |
-|                     WPS                      |        WPS_SID         |   是   | cookie，网页、客户端、小程序多渠道签到 |
+|                   网站名称                   | 多账号 |              说明               |
+| :------------------------------------------: | :----: | :-----------------------------: |
+| [吾爱破解](https://www.52pojie.cn/forum.php) |   否   |                                 |
+|        [CSDN](https://blog.csdn.net/)        |   否   |                                 |
+|      [天翼云盘](https://cloud.189.cn/)       |   是   |  帐号：手机号，密码：不能带&。  |
+|                                              |        | 帐号和帐号、密码和密码间用&连接 |
+|         [在线工具](https://tool.lu/)         |   否   |                                 |
+|  [有道云笔记](https://note.youdao.com/web)   |   是   |                                 |
+|                     WPS                      |   是   | 网页、客户端、小程序多渠道签到  |
 
 
 
@@ -42,7 +45,7 @@
 
 1. 浏览器登录网站——按F12打开开发人员工具——NETWORK拉动右边的滚动条到最顶部，点击最上面的选项（如下图）
 
-![](https://gitee.com/shuye72/MyActions/raw/main/icon/jd4.jpg)
+![](https://gitee.com/kxs2018/daily_signin/raw/main/pic/getcookie.jpg)
 
 2. 上面复制好的cookie先保存到本地，然后复制相应的代码到浏览器开发人员工具的console里，再把cookie复制粘帖到代码里并按enter，所需要的cookie就复制到剪切板了，粘帖到本地备用即可。
 
@@ -54,3 +57,4 @@
    ```
 
 [各网站cookie转换代码](https://github.com/lqkxs3608/daily_signin/blob/main/cookie.md) 
+
