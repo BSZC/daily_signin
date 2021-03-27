@@ -15,7 +15,7 @@ def note_youdao_signin():
     cookie = os.getenv('YD_COOKIE')
     ck_list = cookie.split('&')
     for i in range(len(ck_list)):
-        headers = {'cookie': ck_list[i],
+        headers = {'cookie': ck_list[i].strip(),
                    'User-Agent': 'YNote',
                    'Host': 'note.youdao.com'
                    }
