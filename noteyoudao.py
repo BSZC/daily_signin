@@ -15,21 +15,22 @@ def note_youdao_signin():
     cookie = os.getenv('YD_COOKIE')
     ck_list = cookie.split('&')
     for i in range(len(ck_list)):
-        headers = {'cookie': ck_list[i].strip(),
-                   'User-Agent': 'YNote',
-                   'Host': 'note.youdao.com'
-                   }
-        req = requests.post(url, headers=headers, verify=False)
-        if req.status_code == 200:
-            info = json.loads(req.text)
-            total = info['total'] / 1048576
-            space = info['space'] / 1048576
-            t = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time() + 28800))
-            sio.write(
-                f'帐号{i + 1}：' + '签到成功，本次获取 ' + str(space) + ' M, 总共获取 ' + str(total) + ' M, 签到时间 ' + str(t) + '\n')
-        elif req.status_code > 400:
-            sio.write(f'帐号{i + 1}：签到失败，请检查cookie\n')
-        msg = sio.getvalue().replace('\n\n', '\n').strip()
+        if ck_list[i]:
+            headers = {'cookie': ck_list[i],
+                       'User-Agent': 'YNote',
+                       'Host': 'note.youdao.com'
+                       }
+            req = requests.post(url, headers=headers, verify=False)
+            if req.status_code == 200:
+                info = json.loads(req.text)
+                total = info['total'] / 1048576
+                space = info['space'] / 1048576
+                t = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time() + 28800))
+                sio.write(
+                    f'帐号{i + 1}：' + '签到成功，本次获取 ' + str(space) + ' M, 总共获取 ' + str(total) + ' M, 签到时间 ' + str(t) + '\n')
+            elif req.status_code > 400:
+                sio.write(f'帐号{i + 1}：签到失败，请检查cookie\n')
+            msg = sio.getvalue().replace('\n\n', '\n').strip()
     QYWX_Notify().send('有道云笔记签到信息', msg)
 
 
