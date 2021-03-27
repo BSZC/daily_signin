@@ -31,3 +31,7 @@ def note_youdao_signin():
             sio.write(f'帐号{i + 1}：签到失败，请检查cookie\n')
         msg = sio.getvalue().replace('\n\n', '\n').strip()
     QYWX_Notify().send('有道云笔记签到信息', msg)
+
+
+if __name__ == '__main__':
+    note_youdao_signin()

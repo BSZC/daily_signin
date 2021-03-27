@@ -5,7 +5,6 @@ import requests
 import os
 from QYWX_Notify import QYWX_Notify
 import re
-import urllib
 
 
 def csdn_signin():
@@ -22,13 +21,19 @@ def csdn_signin():
         url = "https://me.csdn.net/api/LuckyDraw_v2/signInfo?product=&&type="
         resp1 = requests.get(url, headers=headers).content.decode("unicode_escape")
         resp1 = json.loads(resp1)  # 将json转化为数组形式
-        nickname = re.findall(r'UserNick=(.+?);', cookie)[0]
-        nickname = urllib.request.unquote(nickname)
-        msg = nickname + '\n'+t + '\n' + resp1['data']['msg']
+        username = re.findall(r'UserName=(.+?);', cookie)[0]
+        msg = username + '\n'+t + '\n' + resp1['data']['msg']
         signdays = resp1['data']['star']
         if signdays == 5:
             sign = requests.post("https://me.csdn.net/api/LuckyDraw_v2/goodLuck", headers=headers).content.decode(
                     "unicode_escape")
-            option = json.loads(sign)['data']['msg']
+            try:
+                option = json.loads(sign)['data']['msg']
+            except:
+                option = ''
             msg = msg + '\n' + option
-        QYWX_Notify().send('CSDN签到信息', msg)
+        QYWX_Notify().send('CSDN签到信息', msg.strip())
+
+
+if __name__ == '__main__':
+    csdn_signin()

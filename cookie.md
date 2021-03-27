@@ -12,7 +12,7 @@ copy(CookieValue);
 
 ```
 var CV = '单引号里面放浏览器复制好的cookie';
-var CookieValue = CV.match(/UserName=.+?;/) + CV.match(/UserToken=.+?;/) +  CV.match(/UserNick=.+?;/);
+var CookieValue = CV.match(/UserName=.+?;/) + CV.match(/UserToken=.+?;/);
 copy(CookieValue);
 ```
 

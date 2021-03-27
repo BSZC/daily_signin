@@ -15,3 +15,7 @@ def toollu_signin():
         html = etree.HTML(resp)
         msg = html.xpath('//section[@class="panel-body"]/p/text()')[0]
         QYWX_Notify().send('tool.lu签到信息', msg)
+
+
+if __name__ == '__main__':
+    toollu_signin()

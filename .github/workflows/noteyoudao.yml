@@ -1,11 +1,12 @@
-name: daily_signin
+name: 有道云笔记签到
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
   schedule:
-    - cron:  20 0,23 * * *
+    - cron:  32 0,23 * * *
+  workflow_dispatch:
   watch:
     types: started
 
@@ -23,17 +24,12 @@ jobs:
       run:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: 日常签到
+    - name:签到
       run: |
-        python3 index.py
+        python3 noteyoudao.py
       env:
         QYWX_CORPID: ${{ secrets.QYWX_CORPID }}
         QYWX_CORPSECRET: ${{ secrets.QYWX_CORPSECRET }}
         QYWX_AGENTID: ${{ secrets.QYWX_AGENTID }}
-        PJ_COOKIE: ${{ secrets.PJ_COOKIE }}
-        CSDN_COOKIE: ${{ secrets.CSDN_COOKIE }}
-        TYYP_USERNAME: ${{ secrets.TYYP_USERNAME }}
-        TYYP_PSW: ${{ secrets.TYYP_PSW }}
-        TOOLLU_COOKIE: ${{ secrets.TOOLLU_COOKIE }}
         YD_COOKIE: ${{ secrets.YD_COOKIE }}
-        WPS_SID: ${{ secrets.WPS_SID }}
+
