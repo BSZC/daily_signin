@@ -1,4 +1,4 @@
-name: 有道云笔记签到
+name: 有道云笔记
 on:
   push:
     branches: [ master ]
