@@ -36,8 +36,9 @@
 
 
 
-注：多账号cookie之间用&分隔。如需更改签到时间，到.github\workflows\xxxx.yml中更改
-
+注：1.多账号cookie之间用&分隔。
+2.如需更改签到时间，到.github\workflows\xxxx.yml中更改
+3.不需要签到的网站不需要加secrets
 ### secrets
 
 - 添加方式：setting-secrets-add a new secret
