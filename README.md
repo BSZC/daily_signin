@@ -18,9 +18,7 @@
 
 ![](https://images.gitee.com/uploads/images/2021/0319/224105_cdd105fd_7943916.png)
 
-### 签到时间
 
-为避免签到失败，北京时间7：20和8：20各一次。cron表达式：20 0,23 * * *，如需更改，到[.github\workflows\main.yml](https://github.com/lqkxs3608/daily_signin/blob/main/.github/workflows/main.yml)中更改
 
 ### **签到列表**
 
