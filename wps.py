@@ -192,17 +192,15 @@ def wps_webpage_clockin(sid: str):
         return 0
     else:
         sus = json.loads(req.text)["result"]  # 第一次：不带验证码的请求结果
-        sio.write("免验证签到-->" + sus + '\n')  # 判断第一次请求
         if sus == "error":
             for n in range(50):
                 requests.get(url=yz_url, headers=headers)
                 req = requests.post(url=url, headers=headers, data=data)
                 sus = json.loads(req.text)["result"]
-                sio.write(str(n + 1) + "尝试验证签到-->" + sus + '\n')
                 time.sleep(random.randint(0, 5) / 10)
                 if sus == "ok":
                     break
-        sio.write("最终签到结果-->" + sus + '\n')
+        sio.write("签到结果-->" + sus + '\n')
         return 1
 
 
