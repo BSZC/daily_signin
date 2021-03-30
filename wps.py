@@ -10,9 +10,9 @@ from io import StringIO
 import os
 
 # 参考以下代码解决https访问警告
-# from requests.packages.urllib3.exceptions import InsecureRequestWarning,InsecurePlatformWarning
-# requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-# requests.packages.urllib3.disable_warnings(InsecurePlatformWarning)
+from requests.packages.urllib3.exceptions import InsecureRequestWarning,InsecurePlatformWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+requests.packages.urllib3.disable_warnings(InsecurePlatformWarning)
 
 
 with open('./res/invite_sid.txt', 'r') as f:
