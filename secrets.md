@@ -21,6 +21,8 @@
 | TOOLLU_COOKIE | 在线工具（https://tool.lu）cookie |
 |  WPS_COOKIE   |            WPS cookie             |
 |   YD_COOKIE   |         有道云笔记cookie          |
+|    NGA_UID    | NGA用户ID，在网页和APP都能获取到  |
+|   NGA_TOKEN   |  access_token，需手机抓包APP获取  |
 
 
 
