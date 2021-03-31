@@ -12,17 +12,20 @@
 ##### cookie secrets
 
 
-|  SECRET Name  |               说明                |
-| :-----------: | :-------------------------------: |
-|  `PJ_COOKIE`  |          吾爱破解cookie           |
-| `CSDN_COOKIE` |            CSDN cookie            |
-| TYYP_USRNAME  |      天翼云盘账号（手机号）       |
-|   TYYP_PSW    |      天翼云盘密码（不能有&）      |
-| TOOLLU_COOKIE | 在线工具（https://tool.lu）cookie |
-|  WPS_COOKIE   |            WPS cookie             |
-|   YD_COOKIE   |         有道云笔记cookie          |
-|    NGA_UID    | NGA用户ID，在网页和APP都能获取到  |
-|   NGA_TOKEN   |  access_token，需手机抓包APP获取  |
+|       SECRET Name        |                             说明                             |
+| :----------------------: | :----------------------------------------------------------: |
+|       `PJ_COOKIE`        |                        吾爱破解cookie                        |
+|      `CSDN_COOKIE`       |                         CSDN cookie                          |
+|       TYYP_USRNAME       |                    天翼云盘账号（手机号）                    |
+|         TYYP_PSW         |                   天翼云盘密码（不能有&）                    |
+|      TOOLLU_COOKIE       |              在线工具（https://tool.lu）cookie               |
+|        WPS_COOKIE        |                          WPS cookie                          |
+|        YD_COOKIE         |                       有道云笔记cookie                       |
+|         NGA_UID          |               NGA用户ID，在网页和APP都能获取到               |
+|        NGA_TOKEN         |               access_token，需手机抓包APP获取                |
+| UIWOW_USERNAME,UIWOW_PSW |                  uiwow帐号、密码（不能有&）                  |
+|       UIWOW_COOKIE       | cookie：单账号，字典形式 {"discuz_2132_auth": "xxxx",     "discuz_2132_saltkey": "xxxx"} |
+|                          | 多账号，列表套字典[{"discuz_2132_auth": "xxxx",     "discuz_2132_saltkey": "xxxx"},{"discuz_2132_auth": "xxxx",     "discuz_2132_saltkey": "xxxx"}] |
 
 
 

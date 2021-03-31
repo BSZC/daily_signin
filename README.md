@@ -2,6 +2,8 @@
 
 ### **更新历史**
 
+2021.3.31  增加uiwow签到
+
 2021.3.30  增加NGA签到
 
 2021.3.27  改变签到方式，每个签到程序单独运行。增加WPS签到
@@ -24,17 +26,19 @@
 
 ### **签到列表**
 
-|                   网站名称                   | 多账号 |                      说明                      |
-| :------------------------------------------: | :----: | :--------------------------------------------: |
-| [吾爱破解](https://www.52pojie.cn/forum.php) |   否   |                                                |
-|        [CSDN](https://blog.csdn.net/)        |   否   |                                                |
-|      [天翼云盘](https://cloud.189.cn/)       |   是   |         帐号：手机号，密码：不能带&。          |
-|                                              |        |        帐号和帐号、密码和密码间用&连接         |
-|         [在线工具](https://tool.lu/)         |   否   |                                                |
-|  [有道云笔记](https://note.youdao.com/web)   |   是   |                                                |
-|    [WPS](https://vip.wps.cn/taskcenter/)     |   否   |         网页、客户端、小程序多渠道签到         |
-|          [NGA](https://bbs.nga.cn/)          |   是   | 手机APP刮墙签到，填secrets时uid之间、token之间 |
-|                                              |        |      用&连接，应注意uid和token的对应关系       |
+|                   网站名称                   | 多账号 |                             说明                             |
+| :------------------------------------------: | :----: | :----------------------------------------------------------: |
+| [吾爱破解](https://www.52pojie.cn/forum.php) |   否   |                                                              |
+|        [CSDN](https://blog.csdn.net/)        |   否   |                                                              |
+|      [天翼云盘](https://cloud.189.cn/)       |   是   |                帐号：手机号，密码：不能带&。                 |
+|                                              |        |               帐号和帐号、密码和密码间用&连接                |
+|         [在线工具](https://tool.lu/)         |   否   |                                                              |
+|  [有道云笔记](https://note.youdao.com/web)   |   是   |                                                              |
+|    [WPS](https://vip.wps.cn/taskcenter/)     |   否   |                网页、客户端、小程序多渠道签到                |
+|          [NGA](https://bbs.nga.cn/)          |   是   |        手机APP刮墙签到，填secrets时uid之间、token之间        |
+|                                              |        |             用&连接，应注意uid和token的对应关系              |
+|   [uiwow](https://www.uiwow.com/)（登录）    |   是   |              账号和密码，用&连接。注意对应关系               |
+|  [uiwow](https://www.uiwow.com/)（cookie）   |   是   | [secrets](https://github.com/lqkxs3608/daily_signin/blob/main/secrets.md)：单个账号cookie用字典的形式，多个账号用列表套字典的形式 |
 
 
 

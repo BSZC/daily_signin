@@ -42,3 +42,12 @@ var CookieValue = CV.match(/wps_sid=(.+?);/)[1];
 copy(CookieValue);
 ```
 
+#### **uiwow**
+
+##### 此代码复制出来的cookie需要再手动改成字典形式
+
+```
+var CV = '单引号里面放浏览器复制好的cookie';
+var CookieValue = CV.match(/discuz_2132_auth=.+?;/) + CV.match(/discuz_2132_saltkey=.+?;/);
+copy(CookieValue);
+```
