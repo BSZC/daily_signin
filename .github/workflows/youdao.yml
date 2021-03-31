@@ -26,7 +26,7 @@ jobs:
         pip install -r requirements.txt
     - name: 签到
       run: |
-        python3 noteyoudao.py
+        python3 ./scripts/noteyoudao.py
       env:
         QYWX_CORPID: ${{ secrets.QYWX_CORPID }}
         QYWX_CORPSECRET: ${{ secrets.QYWX_CORPSECRET }}

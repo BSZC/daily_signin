@@ -6,7 +6,8 @@ from lxml import etree
 import os
 from QYWX_Notify import QYWX_Notify
 
-sio = StringIO()
+sio = StringIO('uiwow签到日志\n\n')
+dio = StringIO()
 signurl = 'https://www.uiwow.com/plugin.php'
 
 headers = {
@@ -53,8 +54,10 @@ def get_stat(cookie):
     username = html.xpath('//div[@id="um"]//strong/a/text()')[0]
     if '已' not in sign_state:
         sio.write(username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n')
+        dio.write(username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n')
     else:
         sio.write(username + ' ' + date + ' 的签到状态是:' + sign_state + '\n')
+        dio.write(username + ' ' + date + ' 的签到状态是:' + sign_state + '\n')
     mytips_data = html.xpath('//div[@class="mytips"]/p')
     for p in mytips_data:
         text = p.xpath('./text()|./b')
@@ -78,8 +81,9 @@ def main():
             get_stat(cookie)
         else:
             sio.write('cookie错误，请检查cookie格式')
-    msg = sio.getvalue().strip()
-    QYWX_Notify().send('uiwow签到信息', msg)
+    content = sio.getvalue().strip()
+    digest = dio.getvalue().strip()
+    QYWX_Notify().send('uiwow签到信息', digest, content)
 
 
 if __name__ == '__main__':

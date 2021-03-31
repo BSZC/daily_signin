@@ -8,6 +8,7 @@ import re
 import random
 from io import StringIO
 import os
+from QYWX_Notify import QYWX_Notify
 
 # 参考以下代码解决https访问警告
 from requests.packages.urllib3.exceptions import InsecureRequestWarning,InsecurePlatformWarning
@@ -15,10 +16,10 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 requests.packages.urllib3.disable_warnings(InsecurePlatformWarning)
 
 
-with open('./res/invite_sid.txt', 'r') as f:
+with open('../res/invite_sid.txt', 'r') as f:
     invite_sid = eval(f.read())
 
-img_url = 'https://s3.ax1x.com/2021/01/23/s7GOTP.png'
+
 # 初始化日志
 sio = StringIO('WPS签到日志\n\n')
 sio.seek(0, 2)  # 将读写位置移动到结尾
@@ -29,67 +30,7 @@ nowtime = datetime.datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S")
 sio.write("---" + nowtime + "---\n\n")
 
 
-class WXPusher:
-    def __init__(self, digest=None, desp=None):
-        self.base_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?'
-        self.req_url = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='
-        self.media_url = 'https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token={access_token}&type=file'
-        self.corpid = os.getenv("QYWX_CORPID")
-        self.corpsecret = os.getenv("QYWX_CORPSECRET")
-        self.agentid = os.getenv("QYWX_AGENTID")
-        self.title = 'WPS签到信息'
-        self.msg = desp
-        self.digest = digest
-        content = self.msg
-        content = content.replace('\n          ---', '\n<code>          ---')
-        content = content.replace('---↓\n', '---↓</code>\n')
-        self.content = '<pre>' + content + '</pre>'  # content.replace('\n','<br/>')
 
-    def get_access_token(self):
-        urls = self.base_url + 'corpid=' + self.corpid + '&corpsecret=' + self.corpsecret
-        resp = requests.get(urls).json()
-        access_token = resp['access_token']
-        return access_token
-
-    # 上传临时素材,返回素材id
-    def get_ShortTimeMedia(self):
-        url = self.media_url
-        ask_url = url.format(access_token=self.get_access_token())
-        f = requests.get(img_url).content
-        r = requests.post(ask_url, files={'file': f}, json=True)
-        return json.loads(r.text)['media_id']
-
-    def send_message(self):
-        data = self.get_message()
-        req_urls = self.req_url + self.get_access_token()
-        requests.post(url=req_urls, data=data)
-
-    def get_message(self):
-        data = {
-            "touser": '@all',
-            "toparty": "@all",
-            "totag": "@all",
-            "msgtype": "mpnews",
-            "agentid": self.agentid,
-            "mpnews": {
-                "articles": [
-                    {
-                        "title": self.title,
-                        "thumb_media_id": self.get_ShortTimeMedia(),  # 填写图片media_id
-                        "author": "",
-                        "content_source_url": "",
-                        "content": self.content,
-                        "digest": self.digest
-                    }
-                ]
-            },
-            "safe": 0,
-            "enable_id_trans": 0,
-            "enable_duplicate_check": 0,
-            "duplicate_check_interval": 1800
-        }
-        data = json.dumps(data)
-        return data
 
 
 # WPS客户端签到，每周三天会员左右，需手动兑换
@@ -508,8 +449,7 @@ def main():
             digest = digest[0:-2]
         desp = desp.replace('\n\n', '\n')
         digest = digest.replace('\n\n', '\n')
-        push = WXPusher(digest, desp)
-        push.send_message()
+        QYWX_Notify().send('WPS签到信息', digest, desp)
         print(desp)
         return desp
 
@@ -599,8 +539,7 @@ def main():
         digest = digest[0:-2]
     desp = desp.replace('\n\n', '\n')
     digest = digest.replace('\n\n', '\n')
-    push = WXPusher(digest, desp)
-    push.send_message()
+    QYWX_Notify().send('WPS签到信息', digest, desp)
     return desp
 
 

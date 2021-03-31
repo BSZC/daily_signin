@@ -11,7 +11,8 @@ headers = {
     'host': 'www.uiwow.com',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4437.0 Safari/537.36 Edg/91.0.831.1',
 }
-sio = StringIO()
+sio = StringIO('uiwow签到日志\n\n')
+dio = StringIO()
 
 
 class Uiwow_Signin:
@@ -50,6 +51,7 @@ class Uiwow_Signin:
             return '登录成功'
         else:
             sio.write(self.username + '\t登录失败')
+            dio.write(self.username + '\t登录失败')
 
     def signin(self):
         params = {
@@ -80,8 +82,10 @@ class Uiwow_Signin:
         date = sign_div.xpath('.//div[@class="date"]/text()')[0]
         if '已' not in sign_state:
             sio.write(self.username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n')
+            dio.write(self.username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n')
         else:
             sio.write(self.username + ' ' + date + ' 的签到状态是:' + sign_state + '\n')
+            dio.write(self.username + ' ' + date + ' 的签到状态是:' + sign_state + '\n')
         mytips_data = html.xpath('//div[@class="mytips"]/p')
         for p in mytips_data:
             text = p.xpath('./text()|./b')
@@ -106,6 +110,7 @@ def main():
         psw = psw.split('&')
         if len(username) != len(psw):
             sio.write('签到失败，用户名和密码数量不等')
+            dio.write('签到失败，用户名和密码数量不等')
             return
         else:
             for i in range(len(username)):
@@ -116,5 +121,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-    msg = sio.getvalue().strip()
-    QYWX_Notify().send('uiwow签到信息', msg)
+    content = sio.getvalue().strip()
+    digest = dio.getvalue().strip()
+    QYWX_Notify().send('uiwow签到信息', digest, content)

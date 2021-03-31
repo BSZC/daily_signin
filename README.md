@@ -2,7 +2,11 @@
 
 ### **更新历史**
 
-2021.3.31  增加uiwow签到
+2021.3.31  增加uiwow签到，修改企业微信通知模块，QYWX_Notify().send(title, digest[, content])
+
+​				    只传入2个参数时，发送文本卡片消息（通知示例1）；
+
+   				 传入3个参数时，发送图文消息（通知示例2、3），图片可以在QYWX_Notify.py第13行更改
 
 2021.3.30  增加NGA签到
 
@@ -20,9 +24,11 @@
 
 ### **通知示例**
 
-![](https://images.gitee.com/uploads/images/2021/0319/224105_cdd105fd_7943916.png)
+<img src="https://images.gitee.com/uploads/images/2021/0319/224105_cdd105fd_7943916.png" alt="通知示例1" style="zoom:50%;" />
 
+<img src="https://gitee.com/kxs2018/imgbed/raw/master/pic/1.jpg" style="zoom:50%;" />
 
+<img src="https://gitee.com/kxs2018/imgbed/raw/master/pic/2.png" style="zoom:50%;" />
 
 ### **签到列表**
 

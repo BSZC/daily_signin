@@ -67,17 +67,18 @@ class Nga_signin:
 
     def start(self):
         req = self.signin()
-        if '先登录' in req["msg"]:
-            sio.write(f'签到失败，token已失效或uid与token不对应\n')
-        elif '签到' in req["msg"]:
-            continued, total = self.get_stat()
-            username = self.get_user()
-            if '已经' in req["msg"]:
-                sio.write(f'账号{self.num}:{username} 今天已签过到，当前已连续签到{continued}天，总共签到{total}天\n')
-            elif '成功' in req["msg"]:
-                sio.write(f'账号{self.num}:{username} 签到成功，当前已连续签到{continued}天，总共签到{total}天\n')
-        else:
-            sio.write(f'账号{self.num}签到错误:未知错误\n')
+        try:
+            if '先登录' in req["msg"]:
+                sio.write(f'签到失败，token已失效或uid与token不对应\n')
+            else:
+                continued, total = self.get_stat()
+                username = self.get_user()
+                if '已经' in req["msg"]:
+                    sio.write(f'账号{self.num}:{username} 今天已签过到，当前已连续签到{continued}天，总共签到{total}天\n')
+                elif req["msg"] == 0:
+                    sio.write(f'账号{self.num}:{username} 签到成功，当前已连续签到{continued}天，总共签到{total}天\n')
+        except Exception as result:
+            sio.write(str(result))
 
 
 if __name__ == '__main__':
