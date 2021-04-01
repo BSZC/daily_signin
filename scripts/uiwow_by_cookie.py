@@ -83,9 +83,9 @@ def main():
         else:
             sio.write('cookie错误，请检查cookie格式\n\n')
             dio.write('cookie错误，请检查cookie格式\n')
-    content = sio.getvalue().strip()
-    digest = dio.getvalue().strip()
-    QYWX_Notify().send('uiwow签到信息', digest, content)
+        content = sio.getvalue().strip()
+        digest = dio.getvalue().strip()
+        QYWX_Notify().send('uiwow签到信息', digest, content)
 
 
 if __name__ == '__main__':
