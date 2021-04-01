@@ -70,8 +70,9 @@ def get_stat(cookie):
 
 
 def main():
-    cookie = eval(os.getenv('UIWOW_COOKIE'))
+    cookie = os.getenv('UIWOW_COOKIE')
     if cookie:
+        cookie = eval(cookie)
         if type(cookie) == list:
             for i in cookie:
                 signin(i)
