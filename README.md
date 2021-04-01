@@ -2,6 +2,8 @@
 
 ### **更新历史**
 
+2021.4.1    增加微博签到
+
 2021.3.31  增加uiwow签到，修改企业微信通知模块，QYWX_Notify().send(title, digest[, content])
 
 ​				    只传入2个参数时，发送文本卡片消息（通知示例1）；
@@ -45,12 +47,13 @@
 |                                              |        |             用&连接，应注意uid和token的对应关系              |
 |   [uiwow](https://www.uiwow.com/)（登录）    |   是   |              账号和密码，用&连接。注意对应关系               |
 |  [uiwow](https://www.uiwow.com/)（cookie）   |   是   | [secrets](https://github.com/lqkxs3608/daily_signin/blob/main/secrets.md)：单个账号cookie用字典的形式，多个账号用列表套字典的形式 |
+|          [微博](https://weibo.com/)          |   是   | API链接，用手机抓包APP获取，https://api.weibo.cn/2/users/show开头的一长串，多账号换行即可 |
 
 
 
 注：
 
-1.  多账号cookie之间用&分隔。
+1.  无特殊说明多账号cookie之间用&分隔。uiwow列表套字典，微博换行
 
 2. 签到时间为北京时间上午7:30左右，复签8:30左右；
 

@@ -53,10 +53,10 @@ def get_stat(cookie):
     date = sign_div.xpath('.//div[@class="date"]/text()')[0]
     username = html.xpath('//div[@id="um"]//strong/a/text()')[0]
     if '已' not in sign_state:
-        sio.write(username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n')
+        sio.write(username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n\n')
         dio.write(username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n')
     else:
-        sio.write(username + ' ' + date + ' 的签到状态是:' + sign_state + '\n')
+        sio.write(username + ' ' + date + ' 的签到状态是:' + sign_state + '\n\n')
         dio.write(username + ' ' + date + ' 的签到状态是:' + sign_state + '\n')
     mytips_data = html.xpath('//div[@class="mytips"]/p')
     for p in mytips_data:
@@ -80,7 +80,8 @@ def main():
             signin(cookie)
             get_stat(cookie)
         else:
-            sio.write('cookie错误，请检查cookie格式')
+            sio.write('cookie错误，请检查cookie格式\n\n')
+            dio.write('cookie错误，请检查cookie格式\n')
     content = sio.getvalue().strip()
     digest = dio.getvalue().strip()
     QYWX_Notify().send('uiwow签到信息', digest, content)

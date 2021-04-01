@@ -26,6 +26,7 @@
 | UIWOW_USERNAME,UIWOW_PSW |                  uiwow帐号、密码（不能有&）                  |
 |       UIWOW_COOKIE       | cookie：单账号，字典形式 {"discuz_2132_auth": "xxxx",     "discuz_2132_saltkey": "xxxx"} |
 |                          | 多账号，列表套字典[{"discuz_2132_auth": "xxxx",     "discuz_2132_saltkey": "xxxx"},{"discuz_2132_auth": "xxxx",     "discuz_2132_saltkey": "xxxx"}] |
+|        WEIBO_URL         | 微博API，需手机抓包，以https://api.weibo.cn/2/users/show开头的一长串 |
 
 
 

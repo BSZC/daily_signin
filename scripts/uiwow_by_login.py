@@ -50,7 +50,7 @@ class Uiwow_Signin:
         if '欢迎您回来' in req:
             return '登录成功'
         else:
-            sio.write(self.username + '\t登录失败')
+            sio.write(self.username + '\t登录失败\n\n')
             dio.write(self.username + '\t登录失败')
 
     def signin(self):
@@ -81,10 +81,10 @@ class Uiwow_Signin:
         sign_state = sign_div.xpath('./a/text()')[0]
         date = sign_div.xpath('.//div[@class="date"]/text()')[0]
         if '已' not in sign_state:
-            sio.write(self.username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n')
+            sio.write(self.username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n\n')
             dio.write(self.username + ' ' + date + ' 的签到状态是:未' + sign_state + '\n')
         else:
-            sio.write(self.username + ' ' + date + ' 的签到状态是:' + sign_state + '\n')
+            sio.write(self.username + ' ' + date + ' 的签到状态是:' + sign_state + '\n\n')
             dio.write(self.username + ' ' + date + ' 的签到状态是:' + sign_state + '\n')
         mytips_data = html.xpath('//div[@class="mytips"]/p')
         for p in mytips_data:
@@ -109,8 +109,8 @@ def main():
         username = username.split('&')
         psw = psw.split('&')
         if len(username) != len(psw):
-            sio.write('签到失败，用户名和密码数量不等')
-            dio.write('签到失败，用户名和密码数量不等')
+            sio.write('签到失败，用户名和密码数量不等\n\n')
+            dio.write('签到失败，用户名和密码数量不等\n')
             return
         else:
             for i in range(len(username)):
