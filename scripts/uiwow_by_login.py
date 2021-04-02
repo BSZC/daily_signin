@@ -51,7 +51,7 @@ class Uiwow_Signin:
             return '登录成功'
         else:
             sio.write(self.username + '\t登录失败\n\n')
-            dio.write(self.username + '\t登录失败')
+            dio.write(self.username + '\t登录失败\n')
 
     def signin(self):
         params = {
@@ -109,7 +109,7 @@ def main():
         username = username.split('&')
         psw = psw.split('&')
         if len(username) != len(psw):
-            sio.write('签到失败，用户名和密码数量不等\n\n')
+            sio.write('签到失败，用户名和密码数量不等\n\n\n')
             dio.write('签到失败，用户名和密码数量不等\n')
             return
         else:
@@ -121,6 +121,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-    content = sio.getvalue().strip()
+    content = sio.getvalue()
     digest = dio.getvalue().strip()
     QYWX_Notify().send('uiwow签到信息', digest, content)
