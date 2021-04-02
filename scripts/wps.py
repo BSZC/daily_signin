@@ -557,8 +557,8 @@ def main():
                                                               resp['data']['vip']['enabled'][i][
                                                                   'expire_time']).strftime("%Y/%m/%d")))
 
-        desp = sio.getvalue().strip()
-        digest = dio.getvalue()
+        desp = sio.getvalue()
+        digest = dio.getvalue().strip()
 
         QYWX_Notify().send('WPS签到信息', digest, desp)
         return desp
