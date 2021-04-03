@@ -75,7 +75,7 @@ class Nga_signin:
                 username = self.get_user()
                 if '已经' in req["msg"]:
                     sio.write(f'账号{self.num}:{username} 今天已签过到，当前已连续签到{continued}天，总共签到{total}天\n')
-                elif req["msg"] == 0:
+                elif req["code"] == 0:
                     sio.write(f'账号{self.num}:{username} 签到成功，当前已连续签到{continued}天，总共签到{total}天\n')
         except Exception as result:
             sio.write(str(result))
