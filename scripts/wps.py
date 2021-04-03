@@ -558,8 +558,11 @@ def main():
                                                                   'expire_time']).strftime("%Y/%m/%d")))
 
         desp = sio.getvalue()
-        digest = dio.getvalue().strip()
-
+        digest = dio.getvalue()
+        if digest[-2:] == '\n\n':
+            digest = digest[0:-2]
+        desp = desp.replace('\n\n', '\n')
+        digest = digest.replace('\n\n', '\n')
         QYWX_Notify().send('WPS签到信息', digest, desp)
         return desp
 
