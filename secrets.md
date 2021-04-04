@@ -27,6 +27,7 @@
 |       UIWOW_COOKIE       | cookie：单账号，字典形式 {"discuz_2132_auth": "xxxx",     "discuz_2132_saltkey": "xxxx"} |
 |                          | 多账号，列表套字典[{"discuz_2132_auth": "xxxx",     "discuz_2132_saltkey": "xxxx"},{"discuz_2132_auth": "xxxx",     "discuz_2132_saltkey": "xxxx"}] |
 |        WEIBO_URL         | 微博API，需手机抓包，以https://api.weibo.cn/2/users/show开头的一长串 |
+|       UNICOM_USER        | [{     "username": "手机号",     "password": "服务密码",     "appId": "appid"}] </br>APPID获取方式：[srcrs/UnicomTask: 联通手机营业厅自动做任务、签到、领流量、领积分等。 (github.com)](https://github.com/srcrs/UnicomTask#2准备需要的参数) |
 
 
 

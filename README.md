@@ -48,6 +48,7 @@
 |   [uiwow](https://www.uiwow.com/)（登录）    |   是   |              账号和密码，用&连接。注意对应关系               |
 |  [uiwow](https://www.uiwow.com/)（cookie）   |   是   | [secrets](https://github.com/lqkxs3608/daily_signin/blob/main/secrets.md)：单个账号cookie用字典的形式，多个账号用列表套字典的形式 |
 |          [微博](https://weibo.com/)          |   是   | API链接，用手机抓包APP获取，https://api.weibo.cn/2/users/show开头的一长串，多账号换行即可 |
+|                   联通APP                    |   是   | 列表套字典 [{"username": "手机号", "password": "服务密码", "appId": "appid"}] |
 
 
 
