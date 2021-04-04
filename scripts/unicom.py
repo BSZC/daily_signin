@@ -633,27 +633,28 @@ def monthOneG(username):
 
 def main():
     users = os.getenv('UNICOM_USER')
-    for user in users:
-        login(user['username'], user['password'], user['appId'])
-        getIntegral()
-        daySign_task(user['username'])
-        luckDraw_task()
-        if 'lotteryNum' in user:
-            pointsLottery_task(user['lotteryNum'])
-        else:
-            pointsLottery_task(0)
-        day100Integral_task()
-        dongaoPoints_task()
-        if check():
-            gameCenterSign_Task(user['username'])
-            openBox_task()
-        collectFlow_task()
-        woTree_task()
-        actionFlow(user['username'])
-        monthOneG(user['username'])
-    content = cio.getvalue()
-    digest = dio.getvalue()
-    QYWX_Notify().send('联通APP签到信息', digest, content)
+    if users and type(users) == list:
+        for user in users:
+            login(user['username'], user['password'], user['appId'])
+            getIntegral()
+            daySign_task(user['username'])
+            luckDraw_task()
+            if 'lotteryNum' in user:
+                pointsLottery_task(user['lotteryNum'])
+            else:
+                pointsLottery_task(0)
+            day100Integral_task()
+            dongaoPoints_task()
+            if check():
+                gameCenterSign_Task(user['username'])
+                openBox_task()
+            collectFlow_task()
+            woTree_task()
+            actionFlow(user['username'])
+            monthOneG(user['username'])
+        content = cio.getvalue()
+        digest = dio.getvalue()
+        QYWX_Notify().send('联通APP签到信息', digest, content)
 
 
 # 主函数入口
