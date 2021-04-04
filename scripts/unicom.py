@@ -633,7 +633,6 @@ def monthOneG(username):
 
 def main():
     users = os.getenv('UNICOM_USER')
-    users = eval(users)
     for user in users:
         login(user['username'], user['password'], user['appId'])
         getIntegral()
