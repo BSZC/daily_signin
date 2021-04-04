@@ -8,7 +8,7 @@ import rsa
 import requests
 from QYWX_Notify import QYWX_Notify
 import os
-
+requests.packages.urllib3.disable_warnings()
 psw = os.getenv('TYYP_PSW')
 BI_RM = list("0123456789abcdefghijklmnopqrstuvwxyz")
 b64map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
@@ -87,7 +87,7 @@ def login(username, password):
         "mailSuffix": "@189.cn",
         "paramId": paramId
     }
-    r = s.post(url, data=data, headers=headers, timeout=5)
+    r = s.post(url, data=data, headers=headers, timeout=5, verify=False)
     if r.json()['result'] == 0:
         print(r.json()['msg'])
     else:
@@ -118,7 +118,7 @@ def tyyp_signin():
                 "Host": "m.cloud.189.cn",
                 "Accept-Encoding": "gzip, deflate",
             }
-            response = s.get(surl, headers=headers)
+            response = s.get(surl, headers=headers,verify=False)
             netdiskBonus = response.json()['netdiskBonus']
             if response.json()['isSign'] == "false":                
                 res1 = f"未签到，签到获得{netdiskBonus}M空间"
@@ -130,7 +130,7 @@ def tyyp_signin():
                 "Host": "m.cloud.189.cn",
                 "Accept-Encoding": "gzip, deflate",
             }
-            response = s.get(url, headers=headers)
+            response = s.get(url, headers=headers,verify=False)
             if "errorCode" in response.text:
                 if "User_Not_Chance" in response.text:
                     res2 = "无抽奖机会"
@@ -139,7 +139,7 @@ def tyyp_signin():
             else:
                 description = response.json()['prizeName']               
                 res2 = f"抽奖获得{description}"
-            response = s.get(url2, headers=headers)
+            response = s.get(url2, headers=headers,verify=False)
             if "errorCode" in response.text:
                 if "User_Not_Chance" in response.text:
                     res3 = "无抽奖机会"
