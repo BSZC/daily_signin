@@ -14,7 +14,7 @@ from lxml.html import fromstring
 import json
 
 requests.packages.urllib3.disable_warnings()
-cio = StringIO('联通营业厅APP签到日志\n\n')
+cio = StringIO('联通APP签到日志\n\n')
 dio = StringIO()
 s = requests.Session()
 
