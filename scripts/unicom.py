@@ -11,6 +11,7 @@ import pytz
 import requests
 import rsa
 from lxml.html import fromstring
+import json
 
 requests.packages.urllib3.disable_warnings()
 cio = StringIO('联通营业厅APP签到日志\n\n')
@@ -633,7 +634,8 @@ def monthOneG(username):
 
 def main():
     users = os.getenv('UNICOM_USER')
-    if users and type(users) == list:
+    if users:
+        users = json.loads(users)
         for user in users:
             login(user['username'], user['password'], user['appId'])
             getIntegral()
