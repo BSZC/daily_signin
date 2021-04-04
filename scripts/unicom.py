@@ -638,8 +638,8 @@ def main():
         users = json.loads(users)
         for user in users:
             login(user['username'], user['password'], user['appId'])
-            getIntegral()
             daySign_task(user['username'])
+            getIntegral()
             luckDraw_task()
             if 'lotteryNum' in user:
                 pointsLottery_task(user['lotteryNum'])
