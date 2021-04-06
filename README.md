@@ -2,6 +2,10 @@
 
 ### **更新历史**
 
+2021.4.6    新增新冠疫情自动通报
+
+2021.4.5    新增联通营业厅APP签到
+
 2021.4.1    增加微博签到
 
 2021.3.31  增加uiwow签到，修改企业微信通知模块，QYWX_Notify().send(title, digest[, content])
@@ -49,6 +53,7 @@
 |  [uiwow](https://www.uiwow.com/)（cookie）   |   是   | [secrets](https://github.com/lqkxs3608/daily_signin/blob/main/secrets.md)：单个账号cookie用字典的形式，多个账号用列表套字典的形式 |
 |          [微博](https://weibo.com/)          |   是   | API链接，用手机抓包APP获取，https://api.weibo.cn/2/users/show开头的一长串，多账号换行即可 |
 |                   联通APP                    |   是   | 列表套字典 [{"username": "手机号", "password": "服务密码", "appId": "appid"}] |
+|                 新冠疫情通报                 |        | JUDGE填入任意字符通报，不添加secret不通报；PROVINCE填入需要通报的省市区（包括34个省/直辖市/自治区/特别行政区） |
 
 
 
