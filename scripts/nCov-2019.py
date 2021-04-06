@@ -118,7 +118,7 @@ def main():
                   '\n  累计治愈：' + total_heal + ' ; ' + '较昨日：' + today_heal + \
                   '\n  境外输入：' + total_input + ' ; ' + '较昨日：' + today_input + \
                   '\n  无症状感染者：' + total_noSymptom + ' ; ' + '较昨日：' + today_incrNoSymptom + '\n\n' + content
-        digest = f'昨日全国新增确诊病例{today_confirm}' + digest
+        digest = f'全国新增确诊病例{today_confirm}' + digest
         QYWX_Notify().send('疫情通报', digest, content)
 
 
